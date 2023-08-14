@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+<h1>Movie List</h1>
+<div class="container">
+    <div class="row "><br><br>
+        {%for i in m %}
+        <div class=" col-xl-3 col-md-4 p-3" style="">
+            <div class="card" style="height:450px;">
+                <img src="{{i.img.url}}" class="card-img-top"  alt="..." height="250px">
+                <div class="card-body " style="position:relative">
+                 <h5 class="card-title" style="text-transform:uppercase;">{{i.title}}({{i.year}})</h5>
+                 <p class="card-text" style="">RATING:{{i.rating}}</p>
+                 <a href="{% url 'filmlist:viewdetails' i.id %}" class="btn btn-primary" style="position:absolute;bottom:20px">VIEW</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
